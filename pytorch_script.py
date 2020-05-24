@@ -10,20 +10,18 @@ device = torch.device("cuda:0" if use_cuda else "cpu")
 cudnn.benchmark = True
 
 # Parameters
-params = {'batch_size': 1,
-          'shuffle': True,
-          'num_workers': 6}
+params = {"batch_size": 1, "shuffle": True, "num_workers": 6}
 max_epochs = 100
 
 # Datasets
-partition = {'train': ['id-1', 'id-2', 'id-3'], 'validation': ['id-4']} # IDs
-labels = {'id-1': 0, 'id-2': 1, 'id-3': 2, 'id-4': 1} # Labels
+partition = {"train": ["id-1", "id-2", "id-3"], "validation": ["id-4"]}  # IDs
+labels = {"id-1": 0, "id-2": 1, "id-3": 2, "id-4": 1}  # Labels
 
 # Generators
-training_set = Dataset(partition['train'], labels)
+training_set = Dataset(partition["train"], labels)
 training_generator = data.DataLoader(training_set, **params)
 
-validation_set = Dataset(partition['validation'], labels)
+validation_set = Dataset(partition["validation"], labels)
 validation_generator = data.DataLoader(validation_set, **params)
 
 # Loop over epochs
