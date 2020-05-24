@@ -36,7 +36,7 @@ for epoch in range(max_epochs):
         print(local_batch.shape, local_labels.shape)
 
     print("...Validation...")
-    with torch.set_grad_enabled(False):
+    with torch.no_grad():
         for local_batch, local_labels in validation_generator:
             # Transfer to GPU
             local_batch, local_labels = local_batch.to(device), local_labels.to(device)
